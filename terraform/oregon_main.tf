@@ -6,6 +6,7 @@ data "aws_vpc" "default" {
 
 module "reg_oregon" {
   source    = "./environment/reg_oregon"
+
   providers = { aws = aws.oregon }
 
   name    = task_s3bucket_oregon
