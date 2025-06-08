@@ -15,7 +15,7 @@ resource "aws_s3_bucket_public_access_block" "index_bucket_block_public" {
 }
 
 resource "aws_s3_bucket_policy" "vpc_only" {
-  bucket = aws_s3_bucket.index_bucket
+  bucket = aws_s3_bucket.index_bucket.id
 
   policy = jsonencode({
     Version = "2012-10-17",
