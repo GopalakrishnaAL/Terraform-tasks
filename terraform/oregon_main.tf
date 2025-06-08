@@ -8,6 +8,6 @@ module "reg_oregon" {
 
   providers = { aws = aws.oregon }
 
-  name    = "task_s3bucket_oregon"
+  name    = "task-s3bucket-oregon"
   vpc_id  = "data.aws_vpc.default.id"
 }
