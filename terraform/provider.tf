@@ -1,6 +1,6 @@
 provider "aws" {
   region = "us-west-2"
-  alias  = "Oregon"
+  alias  = "oregon"
 
   default_tags {
     tags = {
