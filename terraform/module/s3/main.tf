@@ -1,6 +1,6 @@
 # S3 Index bucket.
 resource "aws_s3_bucket" "index_bucket" {
-  bucket = lower(format("%s-index-%s-%s", var.name, var.vpc_id))
+  bucket = lower(format("%s-%s", var.name, var.vpc_id))
 }
 
 
