@@ -15,7 +15,7 @@ resource "aws_s3_bucket_public_access_block" "index_bucket_block_public" {
 }
 
 resource "aws_s3_bucket_policy" "vpc_only" {
-  bucket = aws_s3_bucket.this.id
+  bucket = aws_s3_bucket.index_bucket
 
   policy = jsonencode({
     Version = "2012-10-17",
@@ -26,8 +26,8 @@ resource "aws_s3_bucket_policy" "vpc_only" {
         Principal = "*",
         Action    = "s3:*",
         Resource  = [
-          aws_s3_bucket.this.arn,
-          "${aws_s3_bucket.this.arn}/*"
+          aws_s3_bucket.index_bucket.arn,
+          "${aws_s3_bucket.index_bucket.arn}/*"
         ],
         Condition = {
           StringEquals = {
