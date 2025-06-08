@@ -1,6 +1,5 @@
 # Fetch default VPC in Oregon region
 data "aws_vpc" "default" {
-  provider = aws.oregon
   default  = true
 }
 

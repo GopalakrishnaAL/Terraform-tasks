@@ -1,7 +1,7 @@
-variable "reg_name" {
+variable "name" {
     type = string
 }
 
-variable "reg_vpc_id" {
+variable "vpc_id" {
     type = string
 }

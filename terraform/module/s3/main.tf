@@ -6,7 +6,7 @@ resource "aws_s3_bucket" "index_bucket" {
 
 # Block bucket public access.
 resource "aws_s3_bucket_public_access_block" "index_bucket_block_public" {
-  bucket = aws_s3_bucket.index_bucket.id
+  bucket = var.name
 
   block_public_acls       = true
   block_public_policy     = true
