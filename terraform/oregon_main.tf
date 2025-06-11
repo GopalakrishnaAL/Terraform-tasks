@@ -1,13 +1,13 @@
-# Fetch default VPC in Oregon region
-data "aws_vpc" "default" {
-  default  = true
-}
+# # Fetch default VPC in Oregon region
+# data "aws_vpc" "default" {
+#   default  = true
+# }
 
-module "reg_oregon" {
-  source    = "./environment/reg_oregon"
+# module "reg_oregon" {
+#   source    = "./environment/reg_oregon"
 
-  providers = { aws = aws.oregon }
+#   providers = { aws = aws.oregon }
 
-  name    = "task-s3bucket-oregon"
-  vpc_id  = data.aws_vpc.default.id
-}
+#   name    = "task-s3bucket-oregon"
+#   vpc_id  = data.aws_vpc.default.id
+# }
