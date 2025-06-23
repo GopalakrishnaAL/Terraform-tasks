@@ -24,15 +24,9 @@ module "s3" {
   lifecycle_days = var.lifecycle_days
 }
 
-module "securitygroup" {
-  source = "../../../module/securitygroup"
+module "sg" {
+  source = "../../../module/sg"
 
   ingress_rules = var.ingress_rules
   vpc_id = [module.s3.vpc_id]
 }
-# module "securitygroup" {
-#   source = "../../../module/securitygroup"
-
-#   ingress_rules = var.ingress_rules
-#   vpc_id = [module.s3.vpc_id]
-# }
