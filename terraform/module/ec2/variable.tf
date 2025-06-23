@@ -10,6 +10,6 @@ variable "ami_id" {
   type = string
 }
 
-variable "Dynamic_security_group_ids" {
+variable "security_group_ids" {
   type = list(string)
 }

@@ -4,12 +4,22 @@ variable "instance_name" {
   type = string
 }
 
+variable "ami_id" {
+  type = string
+}
+
 variable "instance_type" {
   type = string
 }
 
-variable "volume_size" {
-  type = number
+#EBS Variable
+
+variable "availability_zone" {
+  type = string
+}
+
+variable "instance_id" {
+  type = string
 }
 
 variable "ebs_volumes" {
@@ -24,10 +34,6 @@ variable "ebs_volumes" {
 
 #S3 Variable
 
-variable "tags" {
-  type = map(string)
-}
-
 variable "name" {
     type = string
 }
@@ -38,4 +44,27 @@ variable "vpc_id" {
 
 variable "lifecycle_days" {
   type = number
+}
+
+#Security_Group Variables
+variable "ingress_rules" {
+  description = "List of ingress rules"
+  type = list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+  default = [
+    {
+      from_port   = 22
+      to_port     = 22
+      protocol    = "tcp"
+      cidr_blocks = ["0.0.0.0/0"]
+    }
+  ]
+}
+
+variable "vpc_id" {
+  type = string
 }

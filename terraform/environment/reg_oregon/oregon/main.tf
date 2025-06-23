@@ -4,7 +4,7 @@ module "ec2" {
   instance_name     = var.instance_name
   instance_type     = var.instance_type
   ami               = var.ami_id
-  vpc_security_group_ids = var.Dynamic_security_group_ids
+  vpc_security_group_ids = [module.securitygroup.SG_id]
 }
 
 module "ebs" {
@@ -12,7 +12,15 @@ module "ebs" {
 
   volume_size       = var.volume_size
   ebs_volumes       = var.ebs_volumes
-  tags              = var.tags
+  availability_zone = [module.ec2.availability_zone]
+  instance_id       = [module.ec2.instance_id]
+  }
+
+module "securitygroup" {
+  source = "../../../module/securitygroup"
+
+  ingress_rules = var.ingress_rules
+  vpc_id = [module.s3.vpc_id]
 }
 
 module "s3" {

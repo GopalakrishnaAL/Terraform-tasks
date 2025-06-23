@@ -6,7 +6,7 @@ resource "aws_s3_bucket_lifecycle_configuration" "index_bucket_lifecycle" {
     status = "Enabled"
 
     expiration {
-      days = 15
+      days = var.lifecycle_days
     }
 
     abort_incomplete_multipart_upload {
