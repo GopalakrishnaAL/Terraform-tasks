@@ -1,6 +1,5 @@
 module "ec2" {
   source    = "../../module/ec2"
-  providers = { aws = aws.oregon }
 
   instance_name     = var.instance_name
   instance_type     = var.instance_type
