@@ -45,6 +45,7 @@ module "reg_oregon" {
       device_name = "/dev/sdi",
       volume_size = 20,
       volume_type = "gp3"
+      encrypted = true
     }
   ]
 }
