@@ -15,7 +15,6 @@ module "reg_oregon" {
   availability_zone = module.reg_oregon.EC2_availabilty_zone
   instance_id       = module.reg_oregon.Ec2_Instance_id
 
-
   # Security Group Rules
   ingress_rules = [ 
     {
