@@ -24,6 +24,13 @@ module "reg_oregon" {
       protocol    = "tcp",
       cidr_blocks = ["0.0.0.0/0"],
       description = "RDP access"
+    },
+    {
+      from_port   = 443,
+      to_port     = 443,
+      protocol    = "tcp",
+      cidr_blocks = ["0.0.0.0/0"],
+      description = "https"
     }
   ]
 
@@ -34,12 +41,12 @@ module "reg_oregon" {
       volume_size = 30,
       volume_type = "gp3"
       encrypted = true
-    }#,
-    # {
-    #   device_name = "/dev/sdi",
-    #   volume_size = 20,
-    #   volume_type = "gp3"
-    # }
+    },
+    {
+      device_name = "/dev/sdi",
+      volume_size = 20,
+      volume_type = "gp3"
+    }
   ]
 }
 
