@@ -25,7 +25,7 @@ module "s3" {
 }
 
 module "sg" {
-  source = "../../../module/sg"
+  source = "../../module/sg"
 
   ingress_rules = var.ingress_rules
   vpc_id = [module.s3.vpc_id]
