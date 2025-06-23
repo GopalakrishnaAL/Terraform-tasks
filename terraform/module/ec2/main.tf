@@ -1,7 +1,7 @@
 resource "aws_instance" "EC2" {
   ami                     = var.ami_id
   instance_type           = var.instance_type
-  security_groups         = var.security_group_ids
+  vpc_security_group_ids = var.security_group_ids
 
   metadata_options {
     http_tokens = "required" # Enforce IMDSv2
