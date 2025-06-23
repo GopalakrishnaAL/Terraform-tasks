@@ -12,8 +12,8 @@ module "oregon" {
   instance_name     = "test_instance"
   ami_id            = "ami-0fe630eb857a6ec83"
   instance_type     = "t3.medium"
-  availability_zone = module.oregon.availability_zone
-  instance_id       = module.oregon.instance_id
+  availability_zone = module.reg_oregon.availability_zone
+  instance_id       = module.reg_oregon.instance_id
 
   # Security Group Rules
   ingress_rules = [ 

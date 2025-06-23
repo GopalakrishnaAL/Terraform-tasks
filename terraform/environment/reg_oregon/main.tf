@@ -1,8 +1,8 @@
 module "ebs" {
   source    = "../../module/ebs"
 
-  # volume_size       = var.volume_size
-  ebs_volumes       = var.ebs_volumes
+  #volume_size       = var.volume_size
+  ebs_volumes       = var.reg_ebs_volumes
   availability_zone = [module.ec2.availability_zone]
   instance_id       = [module.ec2.instance_id]
 }

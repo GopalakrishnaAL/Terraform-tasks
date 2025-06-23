@@ -22,7 +22,7 @@ variable "instance_id" {
   type = string
 }
 
-variable "ebs_volumes" {
+variable "reg_ebs_volumes" {
   description = "List of EBS volume maps"
   type = list(object({
     device_name = string
