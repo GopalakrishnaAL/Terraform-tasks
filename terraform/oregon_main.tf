@@ -1,4 +1,4 @@
-module "oregon" {
+module "reg_oregon" {
   source = "./environment/reg_oregon"
 
   providers = { aws = aws.oregon }
@@ -27,7 +27,7 @@ module "oregon" {
   ]
 
   # EBS Volumes
-  ebs_volumes = [
+  reg_ebs_volumes = [
     {
       device_name = "/dev/sdh",
       volume_size = 30,
