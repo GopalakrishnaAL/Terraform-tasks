@@ -33,6 +33,7 @@ module "reg_oregon" {
       device_name = "/dev/sdh",
       volume_size = 30,
       volume_type = "gp3"
+      encrypted = true
     }#,
     # {
     #   device_name = "/dev/sdi",

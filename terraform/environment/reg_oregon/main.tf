@@ -3,8 +3,8 @@ module "ebs" {
 
   #volume_size       = var.volume_size
   ebs_volumes        = var.reg_ebs_volumes
-  availability_zone  = [module.ec2.availability_zone]
-  instance_id        = [module.ec2.instance_id]
+  availability_zone  = module.ec2.availability_zone
+  instance_id        = module.ec2.instance_id
 }
 
 module "ec2" {
@@ -13,7 +13,7 @@ module "ec2" {
   instance_name     = var.instance_name
   instance_type     = var.instance_type
   ami_id            = var.ami_id
-  security_group_ids = [module.sg.SG_id]
+  security_group_ids = module.sg.SG_id
 }
 
 module "s3" {
@@ -28,5 +28,5 @@ module "sg" {
   source = "../../module/sg"
 
   ingress_rules = var.ingress_rules
-  vpc_id = [module.s3.vpc_id]
+  vpc_id = module.s3.vpc_id
 }
