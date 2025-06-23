@@ -32,12 +32,12 @@ module "oregon" {
       device_name = "/dev/sdh",
       volume_size = 30,
       volume_type = "gp3"
-    },
-    {
-      device_name = "/dev/sdi",
-      volume_size = 20,
-      volume_type = "gp3"
-    }
+    }#,
+    # {
+    #   device_name = "/dev/sdi",
+    #   volume_size = 20,
+    #   volume_type = "gp3"
+    # }
   ]
 }
 
