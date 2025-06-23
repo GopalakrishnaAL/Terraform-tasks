@@ -4,13 +4,13 @@ module "reg_oregon" {
   providers = { aws = aws.oregon }
 
   # S3 Bucket Configuration
-  name           = "test_bucket"
+  name           = "gopal-1-bucket"
   vpc_id         = data.aws_vpc.default.id
   lifecycle_days = 15
 
   # EC2 Instance Configuration
   instance_name     = "test_instance"
-  ami_id            = "ami-0fe630eb857a6ec83"
+  ami_id            = "ami-0992e77a19022a98d"
   instance_type     = "t3.medium"
   availability_zone = module.reg_oregon.EC2_availabilty_zone
   instance_id       = module.reg_oregon.Ec2_Instance_id
