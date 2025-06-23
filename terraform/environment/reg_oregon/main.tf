@@ -13,7 +13,7 @@ module "ec2" {
   instance_name     = var.instance_name
   instance_type     = var.instance_type
   ami_id            = var.ami_id
-  security_group_ids = [module.securitygroup.SG_id]
+  security_group_ids = [module.sg.SG_id]
 }
 
 module "s3" {
