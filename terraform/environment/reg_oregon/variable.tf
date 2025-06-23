@@ -65,3 +65,7 @@ variable "ingress_rules" {
     }
   ]
 }
+
+variable "security_group_ids" {
+  type = string
+}

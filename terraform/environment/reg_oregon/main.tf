@@ -1,7 +1,7 @@
 module "ebs" {
   source    = "../../module/ebs"
 
-  volume_size       = var.volume_size
+  # volume_size       = var.volume_size
   ebs_volumes       = var.ebs_volumes
   availability_zone = [module.ec2.availability_zone]
   instance_id       = [module.ec2.instance_id]
@@ -12,8 +12,8 @@ module "ec2" {
 
   instance_name     = var.instance_name
   instance_type     = var.instance_type
-  ami               = var.ami_id
-  vpc_security_group_ids = [module.securitygroup.SG_id]
+  ami_id            = var.ami_id
+  security_group_ids = [module.securitygroup.SG_id]
 }
 
 module "s3" {
