@@ -8,7 +8,7 @@ resource "aws_instance" "EC2" {
   }
 
   tags = {
-    Name        = "${var.ec2_name_prefix}-ec2"
+    Name        = "${var.instance_name}-ec2"
     Environment = "JM"
     ManagedBy   = "Terraform"
   }

@@ -12,7 +12,7 @@ variable "availability_zone" {
   type = string
 }
 
-variable "ec2_instance_id" {
+variable "instance_id" {
   description = "ID of the EC2 instance to attach EBS volumes to"
   type        = string
 }

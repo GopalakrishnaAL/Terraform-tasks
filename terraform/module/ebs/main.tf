@@ -15,6 +15,6 @@ resource "aws_volume_attachment" "ebs_attachment" {
 
   device_name = each.key
   volume_id   = each.value.id
-  instance_id = var.ec2_instance_id
+  instance_id = var.instance_id
   force_detach = true
 }
