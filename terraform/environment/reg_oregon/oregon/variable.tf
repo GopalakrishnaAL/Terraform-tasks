@@ -64,7 +64,3 @@ variable "ingress_rules" {
     }
   ]
 }
-
-variable "vpc_id" {
-  type = string
-}

@@ -1,3 +1,12 @@
+module "ebs" {
+  source    = "../../module/ebs"
+
+  volume_size       = var.volume_size
+  ebs_volumes       = var.ebs_volumes
+  availability_zone = [module.ec2.availability_zone]
+  instance_id       = [module.ec2.instance_id]
+}
+
 module "ec2" {
   source    = "../../module/ec2"
 
@@ -7,26 +16,17 @@ module "ec2" {
   vpc_security_group_ids = [module.securitygroup.SG_id]
 }
 
-module "ebs" {
-  source    = "../../module/ebs"
-
-  volume_size       = var.volume_size
-  ebs_volumes       = var.ebs_volumes
-  availability_zone = [module.ec2.availability_zone]
-  instance_id       = [module.ec2.instance_id]
-  }
-
-module "securitygroup" {
-  source = "../../../module/securitygroup"
-
-  ingress_rules = var.ingress_rules
-  vpc_id = [module.s3.vpc_id]
-}
-
 module "s3" {
   source = "../../module/s3"
 
   name    = var.name
   vpc_id  = var.vpc_id
   lifecycle_days = var.lifecycle_days
+}
+
+module "securitygroup" {
+  source = "../../../module/securitygroup"
+
+  ingress_rules = var.ingress_rules
+  vpc_id = [module.s3.vpc_id]
 }
