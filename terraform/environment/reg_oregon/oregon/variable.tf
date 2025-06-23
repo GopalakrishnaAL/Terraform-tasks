@@ -47,6 +47,7 @@ variable "lifecycle_days" {
 }
 
 #Security_Group Variables
+
 variable "ingress_rules" {
   description = "List of ingress rules"
   type = list(object({
