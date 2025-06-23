@@ -1,5 +1,5 @@
 module "oregon" {
-  source = "./environment/reg_oregon"
+  source = "./environment/reg_oregon/oregon"
 
   providers = { aws = aws.oregon }
 

@@ -1,3 +1,5 @@
+#EC2 variable
+
 variable "instance_name" {
   type = string
 }
@@ -6,7 +8,7 @@ variable "instance_type" {
   type = string
 }
 
-variable "root_volume_size" {
+variable "volume_size" {
   type = number
 }
 
@@ -20,6 +22,20 @@ variable "ebs_volumes" {
   }))
 }
 
+#S3 Variable
+
 variable "tags" {
   type = map(string)
+}
+
+variable "name" {
+    type = string
+}
+
+variable "vpc_id" {
+    type = string
+}
+
+variable "lifecycle_days" {
+  type = number
 }
