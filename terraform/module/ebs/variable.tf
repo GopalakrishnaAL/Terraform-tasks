@@ -1,4 +1,4 @@
-variable "ebs_volumes" {
+variable "root_volumes" {
   description = "List of maps with EBS volume configurations"
   type = list(object({
     device_name = string

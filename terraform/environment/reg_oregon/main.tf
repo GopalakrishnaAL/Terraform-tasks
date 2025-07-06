@@ -1,40 +1,41 @@
-# module "ebs" {
-#   source    = "../../module/ebs"
+module "ebs" {
+  source    = "../../module/ebs"
 
-#   #volume_size       = var.volume_size
-#   ebs_volumes        = var.reg_ebs_volumes
-#   availability_zone  = module.ec2.EC2_availabilty_zone
-#   instance_id        = module.ec2.Ec2_Instance_id
-# }
+  ebs_volumes        = var.root_block_device
+  availability_zone  = module.ec2.EC2_availabilty_zone
+  instance_id        = module.ec2.Ec2_Instance_id
+}
 
-# module "ec2" {
-#   source    = "../../module/ec2"
+module "ec2" {
+  source    = "../../module/ec2"
 
-#   instance_name     = var.instance_name
-#   instance_type     = var.instance_type
-#   ami_id            = var.ami_id
-#   security_group_ids = [module.sg.SG_id]
-# }
+  instance_name     = var.instance_name
+  instance_type     = var.instance_type
+  ami_id            = var.ami_id
+  security_group_ids1 = [module.sg.SG_id1]
+  security_group_ids2 = [module.sg.SG_id2]
+}
 
-# module "s3" {
-#   source = "../../module/s3"
+module "s3" {
+  source = "../../module/s3"
 
-#   name    = var.name
-#   vpc_id  = var.vpc_id
-#   lifecycle_days = var.lifecycle_days
-# }
+  name    = var.name
+  vpc_id  = var.vpc_id
+  lifecycle_days = var.lifecycle_days
+}
 
-# module "sg" {
-#   source = "../../module/sg"
+module "sg" {
+  source             = "../../module/sg"
+  vpc_id             = module.s3.vpc_id
+  sg1_ingress_rules  = var.sg1_ingress_rules
+  sg2_ingress_rules  = var.sg2_ingress_rules
+}
 
-#   ingress_rules = var.ingress_rules
-#   vpc_id = module.s3.vpc_id
-# }
 
-# output "EC2_availabilty_zone" {
-#   value = module.ec2.EC2_availabilty_zone
-# }
+output "EC2_availabilty_zone" {
+  value = module.ec2.EC2_availabilty_zone
+}
 
-# output "Ec2_Instance_id" {
-#   value = module.ec2.Ec2_Instance_id
-# }
+output "Ec2_Instance_id" {
+  value = module.ec2.Ec2_Instance_id
+}

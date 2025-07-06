@@ -1,5 +1,5 @@
-resource "aws_ebs_volume" "ebs_block_device" {
-  for_each = { for vol in var.ebs_volumes : vol.device_name => vol }
+resource "aws_ebs_volume" "root_block_device" {
+  for_each = { for vol in var.root_volumes : vol.device_name => vol }
 
   availability_zone = var.availability_zone
   size              = each.value.volume_size

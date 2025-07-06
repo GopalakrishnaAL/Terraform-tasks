@@ -1,4 +1,5 @@
-variable "ingress_rules" {
+#SG1
+variable "sg1_ingress_rules" {
   description = "List of ingress rules"
   type = list(object({
     from_port   = number
@@ -6,15 +7,18 @@ variable "ingress_rules" {
     protocol    = string
     cidr_blocks = list(string)
   }))
-  default = [
-    {
-      from_port   = 22
-      to_port     = 22
-      protocol    = "tcp"
-      cidr_blocks = ["0.0.0.0/0"]
-    }
-  ]
-}
+  }
+
+#SG2
+variable "sg2_ingress_rules" {
+  description = "List of ingress rules"
+  type = list(object({
+    from_port   = number
+    to_port     = number
+    protocol    = string
+    cidr_blocks = list(string)
+  }))
+  }
 
 variable "vpc_id" {
   type = string

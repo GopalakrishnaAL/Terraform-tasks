@@ -10,6 +10,10 @@ variable "ami_id" {
   type = string
 }
 
-variable "security_group_ids" {
+variable "security_group_ids1" {
+  type = list(string)
+}
+
+variable "security_group_ids2" {
   type = list(string)
 }
