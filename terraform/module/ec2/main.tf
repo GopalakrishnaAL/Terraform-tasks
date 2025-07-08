@@ -7,6 +7,10 @@ resource "aws_instance" "EC2" {
     http_tokens = "required" # Enforce IMDSv2
   }
 
+ root_block_device {
+   volume_size = var.root_vol
+   volume_type = "gp3"
+ }
   tags = {
     Name        = "${var.instance_name}-ec2"
     Environment = "asgk"

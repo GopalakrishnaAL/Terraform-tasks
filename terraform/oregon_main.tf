@@ -14,6 +14,7 @@ module "reg_oregon" {
   instance_type     = "t2.micro"
   availability_zone = module.reg_oregon.EC2_availabilty_zone
   instance_id       = module.reg_oregon.Ec2_Instance_id
+  root_vol = "80"
 
   # Security Group Rules
   sg1_ingress_rules = [ 
@@ -36,13 +37,6 @@ module "reg_oregon" {
   ]
 
   # EBS Volumes
-  root_block_device = [
-    {
-  volume_size = 80,
-  volume_type = "gp3"
-  encrypted   = true
-    }
-  ]
 #   reg_ebs_volumes = [
 #     {
 #       device_name = "/dev/sdh",

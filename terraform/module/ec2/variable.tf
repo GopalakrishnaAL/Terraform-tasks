@@ -17,3 +17,7 @@ variable "security_group_ids1" {
 variable "security_group_ids2" {
   type = list(string)
 }
+
+variable "root_vol" {
+  type = number
+}

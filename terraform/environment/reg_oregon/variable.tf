@@ -22,15 +22,20 @@ variable "instance_id" {
   type = string
 }
 
-variable "root_block_device" {
-  description = "List of EBS volume maps"
-  type = list(object({
-    device_name = string
-    volume_size = number
-    volume_type = string
-    encrypted   = bool
-  }))
+variable "root_vol" {
+  type = number
 }
+ 
+# EBS 
+# variable "root_block_device" {
+#   description = "List of EBS volume maps"
+#   type = list(object({
+#     device_name = string
+#     volume_size = number
+#     volume_type = string
+#     encrypted   = bool
+#   }))
+# }
 
 #S3 Variable
 

@@ -1,14 +1,13 @@
 module "ebs" {
   source    = "../../module/ebs"
 
-  ebs_volumes        = var.root_block_device
   availability_zone  = module.ec2.EC2_availabilty_zone
   instance_id        = module.ec2.Ec2_Instance_id
 }
 
 module "ec2" {
   source    = "../../module/ec2"
-
+  root_vol = var.root_vol
   instance_name     = var.instance_name
   instance_type     = var.instance_type
   ami_id            = var.ami_id
