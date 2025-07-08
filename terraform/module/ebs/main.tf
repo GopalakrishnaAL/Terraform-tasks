@@ -11,7 +11,7 @@ resource "aws_ebs_volume" "root_block_device" {
 }
 
 resource "aws_volume_attachment" "ebs_attachment" {
-  for_each = aws_ebs_volume.ebs_block_device
+  for_each = aws_ebs_volume.root_block_device
 
   device_name = each.key
   volume_id   = each.value.id
