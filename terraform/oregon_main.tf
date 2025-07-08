@@ -11,7 +11,7 @@ module "reg_oregon" {
   # EC2 Instance Configuration
   instance_name     = "test_instance"
   ami_id            = "ami-0992e77a19022a98d"
-  instance_type     = "t2.micro"
+  instance_type     = "t3.micro"
   availability_zone = module.reg_oregon.EC2_availabilty_zone
   instance_id       = module.reg_oregon.Ec2_Instance_id
   root_vol = "80"
