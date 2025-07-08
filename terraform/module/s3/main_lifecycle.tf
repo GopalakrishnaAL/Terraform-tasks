@@ -5,11 +5,11 @@ resource "aws_s3_bucket_lifecycle_configuration" "index_bucket_lifecycle" {
     id     = "expire-after-15-days"
     status = "Enabled"
 
-   filter {
+    filter {}
+
     expiration {
       days = var.lifecycle_days
     }
-   }
   }
 
   depends_on = [aws_s3_bucket.index_bucket]
