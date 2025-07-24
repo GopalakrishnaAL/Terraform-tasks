@@ -1,29 +1,18 @@
-resource "aws_cloudwatch_metric_alarm" "cpu_high" {
-  alarm_name          = "${var.instance_name}-high-cpu"
-  comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = 2
-  metric_name         = "CPUUtilization"
-  namespace           = "AWS/EC2"
-  period              = 300
-  statistic           = "Average"
-  threshold           = 80
-  alarm_description   = "Alarm when CPU exceeds 80%"
-  dimensions = {
-    InstanceId = aws_instance.EC2.id
-  }
+resource "aws_cloudwatch_metric_alarm" "My_Alarm" {
+  alarm_name                = var.alarm_name
+  namespace                 = "AWS/EC2"
+  comparison_operator       = var.comparison_operator
+  evaluation_periods        = var.evaluation_periods
+  datapoints_to_alarm       = var.datapoints_to_alarm
+  metric_name               = var.metric_name
+  period                    = var.period
+  statistic                 = var.statistic
+  threshold                 = var.threshold
+  alarm_description         = var.alarm_description
+  ok_actions                = []
+  alarm_actions             = []
+  insufficient_data_actions = []
+dimensions = {
+    InstanceId = var.InstanceId
 }
-
-resource "aws_cloudwatch_metric_alarm" "status_check_failed" {
-  alarm_name          = "${var.instance_name}-status-check-failed"
-  comparison_operator = "GreaterThanThreshold"
-  evaluation_periods  = 1
-  metric_name         = "StatusCheckFailed"
-  namespace           = "AWS/EC2"
-  period              = 60
-  statistic           = "Maximum"
-  threshold           = 0
-  alarm_description   = "Alarm when EC2 instance fails a status check"
-  dimensions = {
-    InstanceId = aws_instance.EC2.id
-  }
 }

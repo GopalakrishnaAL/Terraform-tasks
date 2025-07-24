@@ -1,5 +1,4 @@
 #EC2 variable
-
 variable "instance_name" {
   type = string
 }
@@ -13,7 +12,6 @@ variable "instance_type" {
 }
 
 #EBS Variable
-
 variable "availability_zone" {
   type = string
 }
@@ -37,13 +35,13 @@ variable "root_vol" {
 #   }))
 # }
 
-#S3 Variable
-
-variable "name" {
+#VPC
+variable "vpc_id" {
     type = string
 }
 
-variable "vpc_id" {
+#S3 Variable
+variable "name" {
     type = string
 }
 
@@ -52,7 +50,6 @@ variable "lifecycle_days" {
 }
 
 #Security_Group Variables
-
 variable "sg1_ingress_rules" {
   description = "List of ingress rules"
   type = list(object({
@@ -72,3 +69,103 @@ variable "sg2_ingress_rules" {
     cidr_blocks = list(string)
   }))
   }
+
+  #CloudWatch CPU_Alarms
+variable "cpu_alarm_name" {
+  type = string
+}
+
+variable "cpu_alarm_description" {
+  type = string
+}
+
+variable "cpu_comparison_operator" {
+  type = string
+}
+
+variable "cpu_evaluation_periods" {
+  type = number
+}
+
+variable "cpu_datapoints_to_alarm" {
+  type = number
+}
+
+variable "cpu_metric_name" {
+  type = string
+}
+
+variable "cpu_period" {
+  type = number
+}
+
+variable "cpu_statistic" {
+  type = string
+}
+
+variable "cpu_threshold" {
+  type = number
+}
+
+#CloudWatch Dashboard
+variable "reg_dashboard_name" {
+  type = string
+}
+
+variable "reg_dashboard_aws_region" {
+  type = string
+}
+
+variable "waf_name" {
+  type = string
+}
+
+variable "waf_description" {
+  type = string
+}
+
+variable "waf_scope" {
+  type        = string
+  description = "REGIONAL or CLOUDFRONT"
+}
+
+variable "waf_managed_rules" {
+  type = list(object({
+    name            = string
+    priority        = number
+    rule_group_name = string
+    vendor_name     = string
+  }))
+  default = []
+}
+
+variable "waf_custom_rules" {
+  type = list(object({
+    name                  = string
+    priority              = number
+    action                = string
+    match_field           = string
+    positional_constraint = string
+    search_string         = string
+  }))
+  default = []
+}
+
+variable "waf_custom_or_rules" {
+  type = list(object({
+    name     = string
+    priority = number
+    action   = string
+    statements = list(object({
+      match_field           = string
+      positional_constraint = string
+      search_string         = string
+    }))
+  }))
+  default = []
+}
+
+variable "tags" {
+  type    = map(string)
+  default = {}
+}

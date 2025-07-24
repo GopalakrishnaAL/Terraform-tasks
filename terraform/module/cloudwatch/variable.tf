@@ -1,21 +1,39 @@
-variable "instance_id" {
-  description = "ID of the EC2 instance to monitor"
-  type        = string
+variable "alarm_name" {
+  type = string
 }
 
-variable "instance_name" {
-  description = "Name of the EC2 instance (used in alarm names)"
-  type        = string
+variable "alarm_description" {
+  type = string
 }
 
-variable "cpu_threshold" {
-  description = "CPU utilization threshold (%)"
-  type        = number
-  default     = 80
+variable "comparison_operator" {
+  type = string
 }
 
-variable "sns_topic_arn" {
-  description = "SNS topic ARN for alarm notifications"
-  type        = string
-  default     = null
+variable "evaluation_periods" {
+  type = number
+}
+
+variable "datapoints_to_alarm" {
+  type = number
+}
+
+variable "metric_name" {
+  type = string
+}
+
+variable "period" {
+  type = number
+}
+
+variable "statistic" {
+  type = string
+}
+
+variable "threshold" {
+  type = number
+}
+
+variable "InstanceId" {
+  type = string
 }
