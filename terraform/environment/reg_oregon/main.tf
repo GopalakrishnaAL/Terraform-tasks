@@ -39,7 +39,7 @@ output "Ec2_Instance_id" {
   value = module.ec2.Ec2_Instance_id
 }
 
-module "CloudWatch_Alarm" {
+module "cloudwatch" {
   source = "../../module/cloudwatch"
 
   alarm_name          = var.cpu_alarm_description
