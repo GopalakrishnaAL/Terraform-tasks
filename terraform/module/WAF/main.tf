@@ -1,4 +1,4 @@
-resource "aws_wafv2_web_acl" "Paris_WAF" {
+resource "aws_wafv2_web_acl" "oregon_WAF" {
   name        = var.name
   description = var.description
   scope       = var.scope

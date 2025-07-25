@@ -38,12 +38,13 @@ module "reg_oregon" {
       description = "RDP access"
     }    
   ]
+}
 
-  # S3 Bucket Configuration
-    name           = "gopal-1-bucket"
-    lifecycle_days = 15
+#  # S3 Bucket Configuration
+#   name           = "gopal-1-bucket"
+#   lifecycle_days = 15
 
-  # EBS Volumes
+#   EBS Volumes
 #   reg_ebs_volumes = [
 #     {
 #       device_name = "/dev/sdh",
@@ -58,7 +59,6 @@ module "reg_oregon" {
 #       encrypted = true
 #     }
 #   ]
-}
 
 #CloudWatch CPU_Utilization
   cpu_alarm_name          = "CPU_Utilization"
