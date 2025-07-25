@@ -40,7 +40,7 @@ output "Ec2_Instance_id" {
 }
 
 module "CloudWatch_Alarm" {
-  source = "../../modules/CloudWatch"
+  source = "../../module/cloudwatch"
 
   alarm_name          = var.cpu_alarm_description
   alarm_description   = var.cpu_alarm_description
@@ -55,7 +55,7 @@ module "CloudWatch_Alarm" {
 }
 
 module "aws_cloudwatch_dashboard" {
-  source = "../../modules/CloudWatch Dashboard"
+  source = "../../module/cloudwatch dashboard"
 
   dashboard_name        = var.reg_dashboard_name
   dashboard_aws_region  = var.reg_dashboard_aws_region
@@ -63,7 +63,7 @@ module "aws_cloudwatch_dashboard" {
 }
 
 module "waf" {
-  source = "../../modules/waf"
+  source = "../../module/waf"
 
   name             = var.waf_name
   description      = var.waf_description
