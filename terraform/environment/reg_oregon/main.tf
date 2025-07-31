@@ -25,14 +25,14 @@ module "ec2" {
 
 module "sg" {
   source             = "../../module/sg"
-  vpc_id             = module.vpc.vpc_id
+  vpc_id             = var.vpc_id
   sg1_ingress_rules  = var.sg1_ingress_rules
   sg2_ingress_rules  = var.sg2_ingress_rules
 }
 
 module "vpc" {
   source = "../../module/vpc"
-  vpc_id = module.vpc.vpc_id
+  vpc_id = var.vpc_id
 }
 
 output "EC2_availabilty_zone" {
