@@ -25,7 +25,7 @@ module "ec2" {
 
 module "sg" {
   source             = "../../module/sg"
-  vpc_id             = module.s3.vpc_id
+  vpc_id             = module.vpc_id
   sg1_ingress_rules  = var.sg1_ingress_rules
   sg2_ingress_rules  = var.sg2_ingress_rules
 }
