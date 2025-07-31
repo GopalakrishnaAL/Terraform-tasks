@@ -42,7 +42,7 @@ output "Ec2_Instance_id" {
 module "cloudwatch" {
   source = "../../module/cloudwatch"
 
-  alarm_name          = var.alarm_description
+  alarm_name          = var.alarm_name
   alarm_description   = var.alarm_description
   comparison_operator = var.comparison_operator
   evaluation_periods  = var.evaluation_periods

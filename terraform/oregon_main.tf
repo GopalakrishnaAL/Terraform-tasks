@@ -17,6 +17,7 @@ module "reg_oregon" {
   instance_type     = "t3.micro"
   availability_zone = module.reg_oregon.EC2_availabilty_zone
   instance_id       = module.reg_oregon.Ec2_Instance_id
+
   root_vol = "80"
 
   # Security Group Rules
@@ -27,9 +28,9 @@ module "reg_oregon" {
       protocol    = "tcp",
       cidr_blocks = ["0.0.0.0/0"],
       description = "RDP access"
-    }    
+    }
   ]
-  sg2_ingress_rules = [ 
+  sg2_ingress_rules = [
     {
       from_port   = 12,
       to_port     = 12,
@@ -38,11 +39,10 @@ module "reg_oregon" {
       description = "RDP access"
     }    
   ]
-}
 
-#  # S3 Bucket Configuration
-#   name           = "gopal-1-bucket"
-#   lifecycle_days = 15
+ # S3 Bucket Configuration
+  name           = "gopal-1-bucket"
+  lifecycle_days = 15
 
 #   EBS Volumes
 #   reg_ebs_volumes = [
@@ -140,3 +140,4 @@ module "reg_oregon" {
     Environment = "P"
     Project     = "Oregon"
   }
+}

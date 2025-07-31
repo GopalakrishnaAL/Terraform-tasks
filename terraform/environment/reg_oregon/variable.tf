@@ -124,6 +124,7 @@ variable "waf_description" {
   type = string
 }
 
+
 variable "waf_scope" {
   type        = string
   description = "REGIONAL or CLOUDFRONT"
