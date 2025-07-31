@@ -30,8 +30,9 @@ module "sg" {
   sg2_ingress_rules  = var.sg2_ingress_rules
 }
 
-output "vpc_id" {
-  value = module.vpc.vpc_id
+module "vpc" {
+  source = "../../module/vpc"
+  vpc_id = module.vpc_id
 }
 
 output "EC2_availabilty_zone" {
