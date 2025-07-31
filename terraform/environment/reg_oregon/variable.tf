@@ -71,48 +71,48 @@ variable "sg2_ingress_rules" {
   }
 
   #CloudWatch CPU_Alarms
-variable "cpu_alarm_name" {
+variable "alarm_name" {
   type = string
 }
 
-variable "cpu_alarm_description" {
+variable "alarm_description" {
   type = string
 }
 
-variable "cpu_comparison_operator" {
+variable "comparison_operator" {
   type = string
 }
 
-variable "cpu_evaluation_periods" {
+variable "evaluation_periods" {
   type = number
 }
 
-variable "cpu_datapoints_to_alarm" {
+variable "datapoints_to_alarm" {
   type = number
 }
 
-variable "cpu_metric_name" {
+variable "metric_name" {
   type = string
 }
 
-variable "cpu_period" {
+variable "period" {
   type = number
 }
 
-variable "cpu_statistic" {
+variable "statistic" {
   type = string
 }
 
-variable "cpu_threshold" {
+variable "threshold" {
   type = number
 }
 
 #CloudWatch Dashboard
-variable "reg_dashboard_name" {
+variable "dashboard_name" {
   type = string
 }
 
-variable "reg_dashboard_aws_region" {
+variable "dashboard_aws_region" {
   type = string
 }
 

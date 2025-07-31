@@ -42,23 +42,23 @@ output "Ec2_Instance_id" {
 module "cloudwatch" {
   source = "../../module/cloudwatch"
 
-  alarm_name          = var.cpu_alarm_description
-  alarm_description   = var.cpu_alarm_description
-  comparison_operator = var.cpu_comparison_operator
-  evaluation_periods  = var.cpu_evaluation_periods
-  datapoints_to_alarm = var.cpu_datapoints_to_alarm
-  metric_name         = var.cpu_metric_name
-  period              = var.cpu_period
-  statistic           = var.cpu_statistic
-  threshold           = var.cpu_threshold
+  alarm_name          = var.alarm_description
+  alarm_description   = var.alarm_description
+  comparison_operator = var.comparison_operator
+  evaluation_periods  = var.evaluation_periods
+  datapoints_to_alarm = var.datapoints_to_alarm
+  metric_name         = var.metric_name
+  period              = var.period
+  statistic           = var.statistic
+  threshold           = var.threshold
   InstanceId          = module.EC2_1.ec2_id
 }
 
 module "aws_cloudwatch_dashboard" {
   source = "../../module/cloudwatch dashboard"
 
-  dashboard_name        = var.reg_dashboard_name
-  dashboard_aws_region  = var.reg_dashboard_aws_region
+  dashboard_name        = var.dashboard_name
+  dashboard_aws_region  = var.dashboard_aws_region
   dashboard_instance_id = module.EC2_1.ec2_id
 }
 

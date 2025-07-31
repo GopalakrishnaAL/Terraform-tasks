@@ -61,19 +61,19 @@ module "reg_oregon" {
 #   ]
 
 #CloudWatch CPU_Utilization
-  cpu_alarm_name          = "CPU_Utilization"
-  cpu_alarm_description   = "CPU_Utilzation_Crossed_90%"
-  cpu_comparison_operator = "GreaterThanOrEqualToThreshold"
-  cpu_evaluation_periods  = 5
-  cpu_datapoints_to_alarm = 3
-  cpu_metric_name         = "CPUUtilization"
-  cpu_period              = 60
-  cpu_statistic           = "Maximum"
-  cpu_threshold           = 90
+  alarm_name          = "CPU_Utilization"
+  alarm_description   = "CPU_Utilzation_Crossed_90%"
+  comparison_operator = "GreaterThanOrEqualToThreshold"
+  evaluation_periods  = 5
+  datapoints_to_alarm = 3
+  metric_name         = "CPUUtilization"
+  period              = 60
+  statistic           = "Maximum"
+  threshold           = 90
 
 #CloudWatch Dashboard
-  reg_dashboard_name        = "Oregon_EC2_Dashboard"
-  reg_dashboard_aws_region  = "eu-west-2"
+  dashboard_name        = "Oregon_EC2_Dashboard"
+  dashboard_aws_region  = "us-west-2"
 
 #WAF
   waf_name        = "waf-oregon"
