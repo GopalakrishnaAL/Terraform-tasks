@@ -30,6 +30,9 @@ module "sg" {
   sg2_ingress_rules  = var.sg2_ingress_rules
 }
 
+output "vpc_id" {
+  value = module.vpc.vpc_id
+}
 
 output "EC2_availabilty_zone" {
   value = module.ec2.EC2_availabilty_zone
@@ -51,7 +54,7 @@ module "cloudwatch" {
   period              = var.period
   statistic           = var.statistic
   threshold           = var.threshold
-  InstanceId          = module.EC2_1.ec2_id
+  InstanceId          = module.ec2.Ec2_Instance_id
 }
 
 module "aws_cloudwatch_dashboard" {
@@ -59,7 +62,7 @@ module "aws_cloudwatch_dashboard" {
 
   dashboard_name        = var.dashboard_name
   dashboard_aws_region  = var.dashboard_aws_region
-  dashboard_instance_id = module.EC2_1.ec2_id
+  dashboard_instance_id = module.ec2.Ec2_Instance_id
 }
 
 module "waf" {
