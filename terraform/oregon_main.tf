@@ -114,7 +114,7 @@ module "reg_oregon" {
       statements = [
         {
           match_field           = "host"
-          positional_constraint = "STARTS"
+          positional_constraint = "STARTS_WITH"
           search_string         = "gopala.in"
         },
         {
@@ -124,7 +124,7 @@ module "reg_oregon" {
         },
         {
           match_field           = "host"
-          positional_constraint = "ENDS"
+          positional_constraint = "ENDS_WITH"
           search_string         = "gopal.org"
         },
         {
