@@ -102,7 +102,7 @@ module "reg_oregon" {
     action                = "block"
     match_field           = "host"           
     positional_constraint = "EXACTLY"
-    search_string         = "sample.com"
+    search_string         = "Gopal.com"
     }
   ]
 
@@ -114,23 +114,23 @@ module "reg_oregon" {
       statements = [
         {
           match_field           = "host"
-          positional_constraint = "EXACTLY"
-          search_string         = "sample1.com"
+          positional_constraint = "STARTS"
+          search_string         = "gopala.in"
+        },
+        {
+          match_field           = "host"
+          positional_constraint = "CONTAINS"
+          search_string         = "gopal.com"
+        },
+        {
+          match_field           = "host"
+          positional_constraint = "ENDS"
+          search_string         = "gopal.org"
         },
         {
           match_field           = "host"
           positional_constraint = "EXACTLY"
-          search_string         = "sample2.com"
-        },
-        {
-          match_field           = "host"
-          positional_constraint = "EXACTLY"
-          search_string         = "sample3.com"
-        },
-        {
-          match_field           = "host"
-          positional_constraint = "EXACTLY"
-          search_string         = "sample4.com"
+          search_string         = "gopal.uk"
         }
       ]
     }
